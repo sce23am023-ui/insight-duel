@@ -14,7 +14,116 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      decisions: {
+        Row: {
+          agreement: boolean | null
+          ai_answer: string | null
+          ai_confidence: number | null
+          ai_correct: boolean | null
+          ai_reasoning: string | null
+          correct_answer: string
+          created_at: string
+          human_answer: string
+          human_confidence: number
+          human_correct: boolean
+          human_reasoning: string | null
+          id: string
+          question_id: string
+          result: string | null
+          time_taken_ms: number
+          user_id: string
+        }
+        Insert: {
+          agreement?: boolean | null
+          ai_answer?: string | null
+          ai_confidence?: number | null
+          ai_correct?: boolean | null
+          ai_reasoning?: string | null
+          correct_answer: string
+          created_at?: string
+          human_answer: string
+          human_confidence: number
+          human_correct: boolean
+          human_reasoning?: string | null
+          id?: string
+          question_id: string
+          result?: string | null
+          time_taken_ms: number
+          user_id: string
+        }
+        Update: {
+          agreement?: boolean | null
+          ai_answer?: string | null
+          ai_confidence?: number | null
+          ai_correct?: boolean | null
+          ai_reasoning?: string | null
+          correct_answer?: string
+          created_at?: string
+          human_answer?: string
+          human_confidence?: number
+          human_correct?: boolean
+          human_reasoning?: string | null
+          id?: string
+          question_id?: string
+          result?: string | null
+          time_taken_ms?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "decisions_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          name?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string | null
+        }
+        Relationships: []
+      }
+      questions: {
+        Row: {
+          correct_answer: string
+          created_at: string
+          id: string
+          options: Json
+          question_text: string
+          type: string
+        }
+        Insert: {
+          correct_answer: string
+          created_at?: string
+          id?: string
+          options: Json
+          question_text: string
+          type?: string
+        }
+        Update: {
+          correct_answer?: string
+          created_at?: string
+          id?: string
+          options?: Json
+          question_text?: string
+          type?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
