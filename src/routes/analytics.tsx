@@ -191,7 +191,7 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
   );
 }
 
-function Stat({ label, value, icon: Icon, accent, hint }: { label: string; value: string; icon: React.ComponentType<{ className?: string }>; accent?: "human" | "ai"; hint?: string }) {
+function Stat({ label, value, icon: Icon, accent, hint }: { label: string; value: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; accent?: "human" | "ai"; hint?: string }) {
   const color = accent === "human" ? "var(--color-human)" : accent === "ai" ? "var(--color-ai)" : "var(--color-primary)";
   return (
     <div className="rounded-2xl border bg-card p-5">
